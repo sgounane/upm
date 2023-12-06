@@ -1,0 +1,1 @@
+let tab=[true, "said", 12, {id:2, nom:"reda", notes:[12,14,8,13]}]
