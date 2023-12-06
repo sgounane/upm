@@ -1,4 +1,5 @@
 let fs=require("fs");
+console.log("Start ....");
 
 function fn(err,data){
     if(err) console.log("File Not found")
@@ -14,16 +15,7 @@ function fn(err,data){
     } 
 }    
 
-//fs.readFile("./users.json","utf-8",fn);
+fs.readFile("./users.json","utf-8",fn);
 
-
-console.log("Start ....");
-
-let str=`[{
-    "id":2003,
-    "name":"Aya",
-    "score":1321
-}]`
-fn(null,str)
 
 console.log("......End");
