@@ -1,15 +1,17 @@
 const express=require("express")
-let users=require("./db.json");
+let data=require("./db.json");
 const router=express.Router();
 
-router.get("/",(req,res)=>{
+let users=data.users;
+let articles=data.articles;
+router.get("/",(req,res)=>{  //GET http://localhost:3000/users/
     res.status(200).send({
         status:"success",
         data:users
     })
 })
 
-router.get("/:id",(req,res)=>{
+router.get("/:id",(req,res)=>{   //GET http://localhost:3000/users/:id  
     const id=req.params.id;
     let user=users.find((u)=>u.id==id)
     if(user)
@@ -24,7 +26,7 @@ router.post("/",(req,res)=>{
     const lastid=users[users.length-1].id
     console.log(lastid)
     const exists=users.find(u=>u.email===req.body.email)
-    if(exists) return res.send("Email used ...")
+    if(exists) return res.send({status:"Error",message:`User email= ${u.email} exists`})
     const user={
         id:lastid+1,
         name:req.body.name,

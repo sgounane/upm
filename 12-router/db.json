@@ -1,4 +1,13 @@
-[
+{
+    "articles":[
+        {
+        "id":1,
+        "user_id":4,
+        "titre":"Intro to react",
+        "content":"Un cours d'introduction à react"
+        }
+    ],
+    "users":[
     {
         "id":1,
         "name":"Hanane",
@@ -24,3 +33,4 @@
         "password":"1234"
     }
 ]
+}
