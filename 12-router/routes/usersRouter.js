@@ -1,9 +1,7 @@
 const express=require("express")
-let data=require("./db.json");
+let users=require("../db.json").users;
 const router=express.Router();
 
-let users=data.users;
-let articles=data.articles;
 router.get("/",(req,res)=>{  //GET http://localhost:3000/users/
     res.status(200).send({
         status:"success",

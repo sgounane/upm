@@ -1,12 +1,13 @@
 
 const express=require("express")
-const usersRouter=require("./userRouter")
+const usersRouter=require("./routes/usersRouter")
+const articlesRouter=require("./routes/articlesRouter")
 
 const app=express();
 
 //middlewares
 app.use(express.static("./public"));
-//app.use(express.json());
+app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 
 //les routes
@@ -19,6 +20,7 @@ app.get("/",(req,res)=>{
     });
 })
 app.use("/users",usersRouter)
+app.use("/articles",articlesRouter)
 
 app.use((req,res)=>{
     res.status(404).send(
