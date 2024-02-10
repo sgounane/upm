@@ -1,9 +1,37 @@
 doctype html
 html(lang="en")
+    //- un commentaire 
     head
         title Document
     body 
         h1.titre#motitre Bonjour tous
-        h3 Name:  
-        h3 Score: 
-        
+        - const name="said"
+        - const score=234
+        p=`<b>${name} : ${score} </b>`
+        h3 Name:  #{name}
+        h3 Score: #{score}
+        // les boocle
+        - const users=[{name:"said", score:123},{name:"reda", score:45},{name:"nadia",score:342}]
+        table 
+            tr 
+                th Name 
+                th score 
+            each user in users
+                tr 
+                    td #{user.name}  
+                    td #{user.score}
+            else 
+                td no data
+        // Les condition
+        h3 users with score sup à 100
+        table 
+            tr 
+                th Name 
+                th score 
+            each user in users
+                if user.score > 100
+                    tr 
+                        td #{user.name}  
+                        td #{user.score}
+            else 
+                td no data
